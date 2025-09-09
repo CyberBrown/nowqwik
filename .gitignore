@@ -50,3 +50,6 @@ functions/**/*.js
 !.dev.vars.example
 .env*
 !.env.example
+
+# Nested git repository
+develop/

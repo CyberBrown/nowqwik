@@ -28,9 +28,8 @@ export default component$(() => {
   return (
     <div>
       <Jumbotron
-        imgSrc="https://cdn11.bigcommerce.com/s-yhdp96gt9k/images/stencil/1920w/carousel/85/1__91104.png?c=1"
-        imgAlt="Solar panels on a roof"
         class="bg-center bg-no-repeat bg-gray-700 bg-blend-multiply"
+        style="background-image: url('https://cdn11.bigcommerce.com/s-yhdp96gt9k/images/stencil/1920w/carousel/85/1__91104.png?c=1')"
       >
         <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
           <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">

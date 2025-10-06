@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik';
-import { Navbar, TextInput } from 'flowbite-qwik';
+import { Navbar, Input } from 'flowbite-qwik';
 import { Link } from '@builder.io/qwik-city';
 import { LuSearch } from '@qwikest/icons/lucide';
 
@@ -17,7 +17,7 @@ export default component$(() => {
           />
         </Navbar.Brand>
         <div class="flex md:order-2">
-          <TextInput placeholder="Search..." icon={LuSearch} />
+          <Input placeholder="Search..." prefix={<LuSearch />} />
         </div>
         <Navbar.Toggle />
         <Navbar.Collapse>

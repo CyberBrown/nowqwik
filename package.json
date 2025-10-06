@@ -21,31 +21,35 @@
     "preview": "npm run build && wrangler dev",
     "serve": "wrangler pages dev ./dist --compatibility-flags=nodejs_als",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik",
     "cf-typegen": "wrangler types",
-    "prepare": "husky install",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "echo \"No tests yet\" && exit 0"
+    "test": "echo \"No tests yet\" && exit 0",
+    "qwik": "qwik"
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.16.0",
     "@builder.io/qwik-city": "^1.16.0",
     "@cloudflare/workers-types": "^4.20250906.0",
     "@eslint/js": "latest",
+    "@tailwindcss/vite": "^4.1.4",
     "@types/node": "^20.19.0",
     "eslint": "9.32.0",
     "eslint-plugin-qwik": "^1.16.0",
+    "flowbite": "^3.1.2",
+    "flowbite-qwik": "^1.1.2",
+    "flowbite-qwik-icons": "^0.1.10",
     "globals": "16.3.0",
     "prettier": "3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^4.1.4",
     "typescript": "5.4.5",
     "typescript-eslint": "8.38.0",
     "typescript-plugin-css-modules": "latest",
     "undici": "*",
     "vite": "7.1.0",
     "vite-tsconfig-paths": "^4.2.1",
-    "wrangler": "^3.0.0",
-    "husky": "^8.0.0"
+    "wrangler": "^3.0.0"
   }
 }

@@ -15,7 +15,7 @@ export default component$(() => {
       <div role="presentation" class="ellipsis"></div>
       <div role="presentation" class="ellipsis ellipsis-purple"></div>
 
-      <div class="container container-center container-spacing-xl">
+      <div class="container-center container-spacing-xl container">
         <h3>
           You can <span class="highlight">count</span>
           <br /> on me
@@ -23,7 +23,7 @@ export default component$(() => {
         <Counter />
       </div>
 
-      <div class="container container-flex">
+      <div class="container-flex container">
         <Infobox>
           <div q:slot="title" class="icon icon-cli">
             CLI Commands

@@ -1,0 +1,80 @@
+import { type PropsOf, Slot, component$ } from "@builder.io/qwik";
+import { Modal as HeadlessModal } from "@qwik-ui/headless";
+import { cn } from "@qwik-ui/utils";
+import { cva, type VariantProps } from "class-variance-authority";
+
+const Root = HeadlessModal.Root;
+
+const Trigger = HeadlessModal.Trigger;
+
+const Close = HeadlessModal.Close;
+
+export const panelVariants = cva(
+  [
+    "fixed bg-background p-6 text-foreground transition-all backdrop:brightness-50 backdrop:backdrop-blur-xs",
+    "data-closing:animate-out data-closing:duration-300 data-open:animate-in data-open:duration-300",
+    "data-closing:backdrop:animate-out data-closing:backdrop:duration-300 data-closing:backdrop:fade-out data-open:backdrop:animate-in data-open:backdrop:duration-300 data-open:backdrop:fade-in",
+  ],
+  {
+    variants: {
+      position: {
+        center:
+          "rounded-base m-auto max-w-lg shadow-lg data-closed:zoom-out-95 data-closed:fade-out data-closing:backdrop:fade-out data-open:zoom-in-95 data-open:fade-in data-open:slide-in-from-bottom-2 data-open:backdrop:fade-in",
+        top: "rounded-b-base inset-x-0 top-0 mb-auto w-full border-b data-closing:slide-out-to-top data-open:slide-in-from-top",
+        bottom:
+          "rounded-t-base inset-x-0 bottom-0 mt-auto w-full border-t data-closing:slide-out-to-bottom data-open:slide-in-from-bottom",
+        left: "rounded-r-base inset-y-0 left-0 mr-auto h-full max-w-sm border-r data-closing:slide-out-to-left data-open:slide-in-from-left",
+        right:
+          "rounded-l-base inset-y-0 right-0 ml-auto h-full max-w-sm border-l data-closing:slide-out-to-right data-open:slide-in-from-right",
+      },
+    },
+    defaultVariants: {
+      position: "center",
+    },
+  },
+);
+
+type PanelProps = PropsOf<typeof HeadlessModal.Panel> &
+  VariantProps<typeof panelVariants>;
+
+const Panel = component$<PanelProps>(({ position, ...props }) => {
+  return (
+    <HeadlessModal.Panel
+      {...props}
+      class={cn(panelVariants({ position }), props.class)}
+    >
+      <Slot />
+    </HeadlessModal.Panel>
+  );
+});
+
+const Title = component$<PropsOf<"h2">>(({ ...props }) => {
+  return (
+    <HeadlessModal.Title
+      {...props}
+      class={cn("text-lg font-semibold tracking-tight", props.class)}
+    >
+      <Slot />
+    </HeadlessModal.Title>
+  );
+});
+
+const Description = component$<PropsOf<"p">>(({ ...props }) => {
+  return (
+    <HeadlessModal.Description
+      {...props}
+      class={cn("text-muted-foreground text-sm", props.class)}
+    >
+      <Slot />
+    </HeadlessModal.Description>
+  );
+});
+
+export const Modal = {
+  Root,
+  Trigger,
+  Close,
+  Panel,
+  Title,
+  Description,
+};

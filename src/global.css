@@ -2,7 +2,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/* Removed unsupported @custom-variant at-rule */
 
 @layer base {
   :root {
@@ -41,25 +41,6 @@
     --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
     --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.01);
     --transform-press: scale(0.95);
-    --brand-link: #006ce9;
-    --brand-link-soft: #18b6f6;
-    --brand-link-alt: #713fc2;
-    --brand-link-foreground: #ffffff;
-    --brand-surface-dark: #0f172a;
-    --brand-surface-purple: #ede9fe;
-    --brand-text-inverse: #ffffff;
-    --brand-code-surface: rgba(230, 230, 230, 0.3);
-    --brand-ellipse-primary-start: rgba(24, 180, 244, 0.5);
-    --brand-ellipse-primary-end: rgba(46, 55, 114, 0);
-    --brand-ellipse-secondary-start: rgba(172, 127, 244, 0.5);
-    --brand-ellipse-secondary-end: rgba(21, 25, 52, 0);
-    --brand-logo-primary: #18b6f6;
-    --brand-logo-secondary: #ac7ef4;
-    --brand-logo-foreground: #ffffff;
-    --brand-gauge-stop-primary: var(--brand-logo-primary);
-    --brand-gauge-stop-secondary: var(--brand-logo-secondary);
-    --brand-gauge-track: rgba(15, 23, 42, 0.8);
-    --brand-gauge-track-outline: transparent;
   }
   .dark {
     --background: var(--color-slate-950);
@@ -97,29 +78,10 @@
     --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
     --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.01);
     --transform-press: scale(0.95);
-    --brand-link: #38bdf8;
-    --brand-link-soft: #38bdf8;
-    --brand-link-alt: #a855f7;
-    --brand-link-foreground: #030712;
-    --brand-surface-dark: #111827;
-    --brand-surface-purple: #4c1d95;
-    --brand-text-inverse: #f8fafc;
-    --brand-code-surface: rgba(15, 23, 42, 0.6);
-    --brand-ellipse-primary-start: rgba(56, 189, 248, 0.45);
-    --brand-ellipse-primary-end: rgba(148, 163, 184, 0);
-    --brand-ellipse-secondary-start: rgba(168, 85, 247, 0.5);
-    --brand-ellipse-secondary-end: rgba(3, 7, 18, 0);
-    --brand-logo-primary: #38bdf8;
-    --brand-logo-secondary: #a855f7;
-    --brand-logo-foreground: #030712;
-    --brand-gauge-stop-primary: var(--brand-logo-primary);
-    --brand-gauge-stop-secondary: var(--brand-logo-secondary);
-    --brand-gauge-track: rgba(226, 232, 240, 0.75);
-    --brand-gauge-track-outline: transparent;
   }
 }
 
-@theme {
+:root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -166,46 +128,96 @@
   --stroke-width-2: calc(var(--stroke-width) + 2px);
   --animate-accordion-down: collapsible-down 0.2s ease-out forwards;
   --animate-accordion-up: collapsible-up 0.2s ease-out forwards;
+}
 
-  @keyframes collapsible-down {
-    from {
-      height: 0;
-    }
-    to {
-      height: var(--qwikui-collapsible-content-height);
-    }
+@keyframes collapsible-down {
+  from {
+    height: 0;
   }
-  @keyframes collapsible-up {
-    from {
-      height: var(--qwikui-collapsible-content-height);
-    }
-    to {
-      height: 0;
-    }
+  to {
+    height: var(--qwikui-collapsible-content-height);
+  }
+}
+@keyframes collapsible-up {
+  from {
+    height: var(--qwikui-collapsible-content-height);
+  }
+  to {
+    height: 0;
   }
 }
 
-@utility press {
+/* Removed unsupported @utility at-rules. Use Tailwind classes or custom CSS instead. */
+
+/* Example replacement for "press" utility: */
+.press {
   transform: var(--transform-press);
 }
-@utility border-width-* {
-  /* prettier-ignore */
-  border: --value(--border-width-*);
+
+/* Example replacement for border-width utilities: */
+.border-width-base {
+  border-width: var(--border-width-base);
 }
-@utility stroke-width-* {
-  /* prettier-ignore */
-  stroke: --value(--stroke-width-*);
+.border-width-2 {
+  border-width: var(--border-width-2);
 }
-@utility shadow-* {
-  /* prettier-ignore */
-  box-shadow: --value(--shadow-*);
+.border-width-4 {
+  border-width: var(--border-width-4);
+}
+.border-width-8 {
+  border-width: var(--border-width-8);
+}
+
+/* Example replacement for stroke-width utilities: */
+.stroke-width-base {
+  stroke-width: var(--stroke-width-base);
+}
+.stroke-width-1 {
+  stroke-width: var(--stroke-width-1);
+}
+.stroke-width-2 {
+  stroke-width: var(--stroke-width-2);
+}
+
+/* Example replacement for shadow utilities: */
+.shadow-base {
+  box-shadow: var(--shadow-base);
+}
+.shadow-2xs {
+  box-shadow: var(--shadow-2xs);
+}
+.shadow-xs {
+  box-shadow: var(--shadow-xs);
+}
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+.shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+.shadow-2xl {
+  box-shadow: var(--shadow-2xl);
+}
+.shadow-inner {
+  box-shadow: var(--shadow-inner);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--color-border);
+    outline-color: var(--color-ring);
+    outline-width: 2px;
+    outline-style: solid;
+    outline-offset: 2px;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
   }
 }

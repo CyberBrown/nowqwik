@@ -1,16 +1,16 @@
-import { type PropsOf, Slot, component$ } from "@builder.io/qwik";
+import { type PropsOf, Slot, component$, Signal } from "@builder.io/qwik";
 import { Popover as HeadlessPopover } from "@qwik-ui/headless";
 import { cn } from "@qwik-ui/utils";
 
-const Root = component$<PropsOf<typeof HeadlessPopover.Root>>(
-  ({ ...props }) => {
-    return (
-      <HeadlessPopover.Root {...props}>
-        <Slot />
-      </HeadlessPopover.Root>
-    );
-  },
-);
+const Root = component$<
+  PropsOf<typeof HeadlessPopover.Root> & { "bind:isOpen"?: Signal<boolean> }
+>(({ ...props }) => {
+  return (
+    <HeadlessPopover.Root {...props}>
+      <Slot />
+    </HeadlessPopover.Root>
+  );
+});
 
 const Trigger = HeadlessPopover.Trigger;
 

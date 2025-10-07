@@ -1,6 +1,6 @@
 .gettingstarted {
   display: flex;
-  color: white;
+  color: var(--brand-text-inverse);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,7 @@
   font-size: 0.8rem;
 }
 .gettingstarted .hint a {
-  color: var(--qwik-dark-purple);
+  color: var(--brand-link-alt);
 }
 
 @media screen and (min-width: 768px) {

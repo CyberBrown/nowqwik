@@ -27,14 +27,14 @@
 }
 
 .header li a {
-  color: white;
+  color: var(--foreground);
   display: inline-block;
   padding: 0;
   text-decoration: none;
 }
 
 .header li a:hover {
-  color: var(--qwik-light-blue);
+  color: var(--brand-link);
 }
 
 @media (min-width: 450px) {

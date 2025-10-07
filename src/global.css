@@ -16,8 +16,8 @@
     --card-foreground: var(--color-slate-900);
     --border: var(--color-slate-200);
     --input: var(--color-slate-200);
-    --primary: var(--color-green-500);
-    --primary-foreground: black;
+    --primary: var(--color-green-600);
+    --primary-foreground: white;
     --secondary: var(--color-slate-900);
     --secondary-foreground: white;
     --accent: var(--color-slate-100);
@@ -41,6 +41,25 @@
     --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
     --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.01);
     --transform-press: scale(0.95);
+    --brand-link: #006ce9;
+    --brand-link-soft: #18b6f6;
+    --brand-link-alt: #713fc2;
+    --brand-link-foreground: #ffffff;
+    --brand-surface-dark: #0f172a;
+    --brand-surface-purple: #ede9fe;
+    --brand-text-inverse: #ffffff;
+    --brand-code-surface: rgba(230, 230, 230, 0.3);
+    --brand-ellipse-primary-start: rgba(24, 180, 244, 0.5);
+    --brand-ellipse-primary-end: rgba(46, 55, 114, 0);
+    --brand-ellipse-secondary-start: rgba(172, 127, 244, 0.5);
+    --brand-ellipse-secondary-end: rgba(21, 25, 52, 0);
+    --brand-logo-primary: #18b6f6;
+    --brand-logo-secondary: #ac7ef4;
+    --brand-logo-foreground: #ffffff;
+    --brand-gauge-stop-primary: var(--brand-logo-primary);
+    --brand-gauge-stop-secondary: var(--brand-logo-secondary);
+    --brand-gauge-track: rgba(15, 23, 42, 0.8);
+    --brand-gauge-track-outline: transparent;
   }
   .dark {
     --background: var(--color-slate-950);
@@ -53,8 +72,8 @@
     --card-foreground: var(--color-slate-50);
     --border: var(--color-slate-800);
     --input: var(--color-slate-800);
-    --primary: var(--color-green-500);
-    --primary-foreground: black;
+    --primary: var(--color-green-600);
+    --primary-foreground: white;
     --secondary: var(--color-slate-100);
     --secondary-foreground: black;
     --accent: var(--color-slate-700);
@@ -78,6 +97,25 @@
     --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
     --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.01);
     --transform-press: scale(0.95);
+    --brand-link: #38bdf8;
+    --brand-link-soft: #38bdf8;
+    --brand-link-alt: #a855f7;
+    --brand-link-foreground: #030712;
+    --brand-surface-dark: #111827;
+    --brand-surface-purple: #4c1d95;
+    --brand-text-inverse: #f8fafc;
+    --brand-code-surface: rgba(15, 23, 42, 0.6);
+    --brand-ellipse-primary-start: rgba(56, 189, 248, 0.45);
+    --brand-ellipse-primary-end: rgba(148, 163, 184, 0);
+    --brand-ellipse-secondary-start: rgba(168, 85, 247, 0.5);
+    --brand-ellipse-secondary-end: rgba(3, 7, 18, 0);
+    --brand-logo-primary: #38bdf8;
+    --brand-logo-secondary: #a855f7;
+    --brand-logo-foreground: #030712;
+    --brand-gauge-stop-primary: var(--brand-logo-primary);
+    --brand-gauge-stop-secondary: var(--brand-logo-secondary);
+    --brand-gauge-track: rgba(226, 232, 240, 0.75);
+    --brand-gauge-track-outline: transparent;
   }
 }
 

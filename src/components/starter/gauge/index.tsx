@@ -9,8 +9,11 @@ export default component$(({ value = 50 }: { value?: number }) => {
       <svg viewBox="0 0 120 120" class={styles.gauge}>
         <defs>
           <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#18B6F6" />
-            <stop offset="1000%" stop-color="#AC7FF4" />
+            <stop offset="0%" stopColor="var(--brand-gauge-stop-primary)" />
+            <stop
+              offset="1000%"
+              stopColor="var(--brand-gauge-stop-secondary)"
+            />
           </linearGradient>
         </defs>
 
@@ -19,7 +22,7 @@ export default component$(({ value = 50 }: { value?: number }) => {
           cx="60"
           cy="60"
           stroke-width="8"
-          style="fill: #000; stroke: #0000"
+          style="fill: var(--brand-gauge-track); stroke: var(--brand-gauge-track-outline)"
         ></circle>
 
         <circle

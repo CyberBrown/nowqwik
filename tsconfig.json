@@ -26,5 +26,5 @@
     ],
     "types": ["@cloudflare/workers-types/2023-07-01", "node"]
   },
-  "include": ["src", "./*.d.ts", "./*.config.ts"]
+  "include": ["src", "./*.d.ts", "./*.config.ts", "./*.config.js"]
 }

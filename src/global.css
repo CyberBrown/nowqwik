@@ -6,6 +6,16 @@
 
 @layer base {
   :root {
+    /* Solamp Brand Colors */
+    --action-blue: #0066CC;
+    --action-blue-hover: #0052A3;
+    --forest-teal: #2D5F5D;
+    --forest-teal-hover: #234948;
+    --warm-sand: #F5E6D3;
+    --sunshine-yellow: #FFD700;
+    --earth-brown: #8B4513;
+    
+    /* Base Colors */
     --background: white;
     --foreground: var(--color-slate-950);
     --muted: var(--color-slate-100);
@@ -16,18 +26,25 @@
     --card-foreground: var(--color-slate-900);
     --border: var(--color-slate-200);
     --input: var(--color-slate-200);
-    --primary: var(--color-green-600);
+    
+    /* Primary = Action Blue */
+    --primary: var(--action-blue);
     --primary-foreground: white;
-    --secondary: var(--color-slate-900);
+    --primary-hover: var(--action-blue-hover);
+    
+    /* Secondary = Forest Teal */
+    --secondary: var(--forest-teal);
     --secondary-foreground: white;
+    --secondary-hover: var(--forest-teal-hover);
+    
     --accent: var(--color-slate-100);
     --accent-foreground: var(--color-slate-900);
     --alert: var(--color-red-500);
     --alert-foreground: var(--color-slate-50);
-    --ring: var(--color-slate-900);
+    --ring: var(--action-blue);
     --border-width: 0px;
     --stroke-width: 1px;
-    --border-radius: 1rem;
+    --border-radius: 0.5rem;
     --shadow-base: none;
     --shadow-2xs: 0 1px rgb(0 0 0 / 0.05);
     --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -209,6 +226,8 @@
 }
 
 @layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap');
+  
   * {
     border-color: var(--color-border);
     outline-color: var(--color-ring);
@@ -219,5 +238,11 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
   }
 }

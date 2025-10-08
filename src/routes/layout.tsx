@@ -1,36 +1,27 @@
-import { component$ } from "@builder.io/qwik";
-import { Navbar } from "flowbite-qwik";
-import { Link } from "@builder.io/qwik-city";
-import { DarkModeToggle } from "flowbite-qwik";
+import { component$, Slot } from "@builder.io/qwik";
+import type { RequestHandler } from "@builder.io/qwik-city";
+import { Header } from "~/components/layout/header";
+import { Footer } from "~/components/layout/footer";
+
+export const onGet: RequestHandler = async ({ cacheControl }) => {
+  // Control caching for this request for best performance and to reduce hosting costs:
+  // https://qwik.dev/docs/caching/
+  cacheControl({
+    // Always serve a cached response by default, up to a week stale
+    staleWhileRevalidate: 60 * 60 * 24 * 7,
+    // Max once every 5 seconds, revalidate on the server to get a fresh version of this page
+    maxAge: 5,
+  });
+};
 
 export default component$(() => {
   return (
-    <Navbar fluid rounded>
-      <Navbar.Brand tag={Link} href="https://flowbite-qwik.com/">
-        <img
-          src="https://via.placeholder.com/32"
-          alt="Flowbite qwik logo"
-          width="32"
-          height="32"
-          class="h-8 w-auto"
-        />
-        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-          Flowbite Qwik
-        </span>
-      </Navbar.Brand>
-      <Navbar.Toggle />
-      <Navbar.Collapse>
-        <Navbar.Link href="/navbars" active>
-          Home
-        </Navbar.Link>
-        <Navbar.Link tag={Link} href="/navbars">
-          About
-        </Navbar.Link>
-        <Navbar.Link href="/navbars">Services</Navbar.Link>
-        <Navbar.Link href="/navbars">Pricing</Navbar.Link>
-        <Navbar.Link href="/navbars">Contact</Navbar.Link>
-        <DarkModeToggle />
-      </Navbar.Collapse>
-    </Navbar>
+    <>
+      <Header />
+      <main>
+        <Slot />
+      </main>
+      <Footer />
+    </>
   );
 });

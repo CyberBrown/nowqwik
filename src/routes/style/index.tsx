@@ -52,8 +52,6 @@ export default component$(() => {
         A gallery of all available UI components.
       </p>
 
-      <Separator />
-
       {/* Accordion */}
       <div class="space-y-4">
         <h2 class="text-2xl font-semibold">Accordion</h2>
@@ -178,6 +176,15 @@ export default component$(() => {
         </Carousel.Root>
       </div>
 
+      {/* Checkbox */}
+      <div class="space-y-4">
+        <h2 class="text-2xl font-semibold">Checkbox</h2>
+        <div class="flex items-center space-x-2">
+          <Checkbox id="showcase-checkbox" bind:checked={checked} />
+          <Label for="showcase-checkbox">This is a checkbox.</Label>
+        </div>
+      </div>
+
       {/* Collapsible */}
       <div class="space-y-4">
         <h2 class="text-2xl font-semibold">Collapsible</h2>
@@ -194,7 +201,7 @@ export default component$(() => {
       {/* Combobox */}
       <div class="space-y-4">
         <h2 class="text-2xl font-semibold">Combobox</h2>
-        <Combobox.Root class="w-52">
+        <Combobox.Root class="w-52" options={frameworks}>
           <Combobox.Label>Framework</Combobox.Label>
           <Combobox.Control>
             <Combobox.Input />
@@ -203,11 +210,7 @@ export default component$(() => {
             </Combobox.Trigger>
           </Combobox.Control>
           <Combobox.Popover>
-            {frameworks.map((framework) => (
-              <Combobox.Item value={framework.value}>
-                <Combobox.ItemLabel>{framework.label}</Combobox.ItemLabel>
-              </Combobox.Item>
-            ))}
+            <Combobox.Empty>No frameworks found.</Combobox.Empty>
           </Combobox.Popover>
         </Combobox.Root>
       </div>
@@ -222,6 +225,18 @@ export default component$(() => {
             <Dropdown.Item>Item 2</Dropdown.Item>
           </Dropdown.Popover>
         </Dropdown.Root>
+      </div>
+
+      {/* Input */}
+      <div class="space-y-4">
+        <h2 class="text-2xl font-semibold">Input</h2>
+        <Input placeholder="This is an input field." class="max-w-sm" />
+      </div>
+
+      {/* Label */}
+      <div class="space-y-4">
+        <h2 class="text-2xl font-semibold">Label</h2>
+        <Label for="labeled-input">This is a label.</Label>
       </div>
 
       {/* Modal */}
@@ -292,6 +307,16 @@ export default component$(() => {
         </Select.Root>
       </div>
 
+      {/* Separator */}
+      <div class="space-y-4">
+        <h2 class="text-2xl font-semibold">Separator</h2>
+        <div>
+          <p>Some text above the separator.</p>
+          <Separator class="my-4" />
+          <p>Some text below the separator.</p>
+        </div>
+      </div>
+
       {/* Skeleton */}
       <div class="space-y-4">
         <h2 class="text-2xl font-semibold">Skeleton</h2>
@@ -317,6 +342,12 @@ export default component$(() => {
         </Tabs.Root>
       </div>
 
+      {/* Textarea */}
+      <div class="space-y-4">
+        <h2 class="text-2xl font-semibold">Textarea</h2>
+        <Textarea placeholder="This is a textarea." class="max-w-sm" />
+      </div>
+
       {/* Toggle & Toggle Group */}
       <div class="space-y-4">
         <h2 class="text-2xl font-semibold">Toggle & Toggle Group</h2>
@@ -336,19 +367,6 @@ export default component$(() => {
           <Tooltip.Trigger>Hover over me</Tooltip.Trigger>
           <Tooltip.Panel>I am a tooltip!</Tooltip.Panel>
         </Tooltip.Root>
-      </div>
-
-      {/* Forms */}
-      <div class="space-y-4">
-        <h2 class="text-2xl font-semibold">Other Form Elements</h2>
-        <div class="max-w-sm space-y-2">
-          <div class="flex items-center space-x-2">
-            <Checkbox id="terms" bind:checked={checked} />
-            <Label for="terms">Accept terms and conditions</Label>
-          </div>
-          <Input placeholder="Email" />
-          <Textarea placeholder="Your message here." />
-        </div>
       </div>
     </div>
   );

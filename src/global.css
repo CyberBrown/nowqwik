@@ -1,166 +1,223 @@
+@layer base, qwik-ui, popover-polyfill, theme, components, utilities;
 @import "tailwindcss";
+@import "tw-animate-css";
 
-/**
- * WHAT IS THIS FILE?
- *
- * Globally applied styles. No matter which components are in the page or matching route,
- * the styles in here will be applied to the Document, without any sort of CSS scoping.
- *
- */
+/* Removed unsupported @custom-variant at-rule */
+
+@layer base {
+  :root {
+    --background: white;
+    --foreground: var(--color-slate-950);
+    --muted: var(--color-slate-100);
+    --muted-foreground: var(--color-slate-700);
+    --popover: white;
+    --popover-foreground: var(--color-slate-900);
+    --card: white;
+    --card-foreground: var(--color-slate-900);
+    --border: var(--color-slate-200);
+    --input: var(--color-slate-200);
+    --primary: var(--color-green-600);
+    --primary-foreground: white;
+    --secondary: var(--color-slate-900);
+    --secondary-foreground: white;
+    --accent: var(--color-slate-100);
+    --accent-foreground: var(--color-slate-900);
+    --alert: var(--color-red-500);
+    --alert-foreground: var(--color-slate-50);
+    --ring: var(--color-slate-900);
+    --border-width: 0px;
+    --stroke-width: 1px;
+    --border-radius: 1rem;
+    --shadow-base: none;
+    --shadow-2xs: 0 1px rgb(0 0 0 / 0.05);
+    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md:
+      0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg:
+      0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl:
+      0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.01);
+    --transform-press: scale(0.95);
+  }
+  .dark {
+    --background: var(--color-slate-950);
+    --foreground: var(--color-slate-50);
+    --muted: var(--color-slate-800);
+    --muted-foreground: var(--color-slate-300);
+    --popover: var(--color-slate-950);
+    --popover-foreground: var(--color-slate-50);
+    --card: var(--color-slate-950);
+    --card-foreground: var(--color-slate-50);
+    --border: var(--color-slate-800);
+    --input: var(--color-slate-800);
+    --primary: var(--color-green-600);
+    --primary-foreground: white;
+    --secondary: var(--color-slate-100);
+    --secondary-foreground: black;
+    --accent: var(--color-slate-700);
+    --accent-foreground: var(--color-slate-50);
+    --alert: var(--color-red-500);
+    --alert-foreground: var(--color-slate-50);
+    --ring: var(--color-slate-300);
+    --border-width: 0px;
+    --stroke-width: 1px;
+    --border-radius: 1rem;
+    --shadow-base: none;
+    --shadow-2xs: 0 1px rgb(0 0 0 / 0.05);
+    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md:
+      0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg:
+      0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl:
+      0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.01);
+    --transform-press: scale(0.95);
+  }
+}
 
 :root {
-  --qwik-dark-blue: #006ce9;
-  --qwik-light-blue: #18b6f6;
-  --qwik-light-purple: #ac7ff4;
-  --qwik-dark-purple: #713fc2;
-  --qwik-dirty-black: #1d2033;
-  --qwik-dark-background: #151934;
-  --qwik-dark-text: #ffffff;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-alert: var(--alert);
+  --color-alert-foreground: var(--alert-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-xs: var(--border-radius);
+  --radius-sm: calc(var(--border-radius) + 0.125rem);
+  --radius-md: calc(var(--border-radius) + 0.375rem);
+  --radius-lg: calc(var(--border-radius) + 0.5rem);
+  --radius-xl: calc(var(--border-radius) + 0.75rem);
+  --radius-2xl: calc(var(--border-radius) + 1rem);
+  --radius-3xl: calc(var(--border-radius) + 1.5rem);
+  --shadow-base: var(--shadow-base);
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+  --shadow-inner: var(--shadow-inner);
+  --default-border-width: calc(var(--border-width) + 1px);
+  --border-width-base: var(--border-width);
+  --border-width-2: calc(var(--border-width) + 2px);
+  --border-width-4: calc(var(--border-width) + 4px);
+  --border-width-8: calc(var(--border-width) + 8px);
+  --stroke-width-0: 0px;
+  --stroke-width-base: var(--stroke-width);
+  --stroke-width-1: calc(var(--stroke-width) + 1px);
+  --stroke-width-2: calc(var(--stroke-width) + 2px);
+  --animate-accordion-down: collapsible-down 0.2s ease-out forwards;
+  --animate-accordion-up: collapsible-up 0.2s ease-out forwards;
 }
 
-html {
-  line-height: 1;
-  -webkit-text-size-adjust: 100%;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    "Noto Sans",
-    sans-serif,
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol",
-    "Noto Color Emoji";
+@keyframes collapsible-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--qwikui-collapsible-content-height);
+  }
 }
-
-body {
-  padding: 0;
-  margin: 0;
-  line-height: inherit;
-}
-
-@plugin 'flowbite/plugin';
-
-@source "../node_modules/flowbite-qwik";
-
-@custom-variant dark (&:where(.dark, .dark *));
-@theme {
-  --color-bgContrast: #fff;
-}
-@layer theme {
-  .dark {
-    --color-bgContrast: #111827;
+@keyframes collapsible-up {
+  from {
+    height: var(--qwikui-collapsible-content-height);
+  }
+  to {
+    height: 0;
   }
 }
 
-@theme {
-  --animate-from-left: slideFromLeft 0.2s 1;
-  --animate-from-right: slideFromRight 0.2s 1;
+/* Removed unsupported @utility at-rules. Use Tailwind classes or custom CSS instead. */
 
-  --min-width-screen-lg: 1024px;
+/* Example replacement for "press" utility: */
+.press {
+  transform: var(--transform-press);
+}
 
-  --container-8xl: 90rem;
+/* Example replacement for border-width utilities: */
+.border-width-base {
+  border-width: var(--border-width-base);
+}
+.border-width-2 {
+  border-width: var(--border-width-2);
+}
+.border-width-4 {
+  border-width: var(--border-width-4);
+}
+.border-width-8 {
+  border-width: var(--border-width-8);
+}
 
-  @keyframes slideFromLeft {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-  @keyframes slideFromRight {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
+/* Example replacement for stroke-width utilities: */
+.stroke-width-base {
+  stroke-width: var(--stroke-width-base);
+}
+.stroke-width-1 {
+  stroke-width: var(--stroke-width-1);
+}
+.stroke-width-2 {
+  stroke-width: var(--stroke-width-2);
+}
 
-  --color-green-50: #ecfdf5;
-  --color-green-100: #d1fae5;
-  --color-green-200: #a7f3d0;
-  --color-green-300: #6ee7b7;
-  --color-green-400: #34d399;
-  --color-green-500: #10b981;
-  --color-green-600: #059669;
-  --color-green-700: #047857;
-  --color-green-800: #065f46;
-  --color-green-900: #064e3b;
-  --color-green-950: oklch(0.266 0.065 152.934);
-
-  --color-pink-50: #fdf2f8;
-  --color-pink-100: #fce7f3;
-  --color-pink-200: #fbcfe8;
-  --color-pink-300: #f9a8d4;
-  --color-pink-400: #f472b6;
-  --color-pink-500: #ec4899;
-  --color-pink-600: #db2777;
-  --color-pink-700: #be185d;
-  --color-pink-800: #9d174d;
-  --color-pink-900: #831843;
-
-  --color-purple-50: #f5f3ff;
-  --color-purple-100: #ede9fe;
-  --color-purple-200: #ddd6fe;
-  --color-purple-300: #c4b5fd;
-  --color-purple-400: #a78bfa;
-  --color-purple-500: #8b5cf6;
-  --color-purple-600: #7c3aed;
-  --color-purple-700: #6d28d9;
-  --color-purple-800: #5b21b6;
-  --color-purple-900: #4c1d95;
-  --color-purple-950: oklch(0.291 0.149 302.717);
-
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
-  --color-gray-950: oklch(0.13 0.028 261.692);
-
-  --color-blue-50: #eff6ff;
-  --color-blue-100: #dbeafe;
-  --color-blue-200: #bfdbfe;
-  --color-blue-300: #93c5fd;
-  --color-blue-400: #60a5fa;
-  --color-blue-500: #3b82f6;
-  --color-blue-600: #2563eb;
-  --color-blue-700: #1d4ed8;
-  --color-blue-800: #1e40af;
-  --color-blue-900: #1e3a8a;
-  --color-blue-950: oklch(0.282 0.091 267.935);
+/* Example replacement for shadow utilities: */
+.shadow-base {
+  box-shadow: var(--shadow-base);
+}
+.shadow-2xs {
+  box-shadow: var(--shadow-2xs);
+}
+.shadow-xs {
+  box-shadow: var(--shadow-xs);
+}
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+.shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+.shadow-2xl {
+  box-shadow: var(--shadow-2xl);
+}
+.shadow-inner {
+  box-shadow: var(--shadow-inner);
 }
 
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+  * {
+    border-color: var(--color-border);
+    outline-color: var(--color-ring);
+    outline-width: 2px;
+    outline-style: solid;
+    outline-offset: 2px;
   }
-}
-
-.dark {
-  color-scheme: dark;
-  background: #111827;
-}
-.light {
-  color-scheme: light;
-  background: #fff;
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
 }

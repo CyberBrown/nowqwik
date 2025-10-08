@@ -44,6 +44,7 @@ const ignores = [
   "**/yarn.lock",
   "**/server",
   "eslint.config.js",
+  "prettier.config.js",
 ];
 
 export default tseslint.config(

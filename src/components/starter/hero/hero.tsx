@@ -15,13 +15,62 @@ export default component$(() => {
       <div class={styles["button-group"]}>
         <button
           onClick$={async () => {
+            const fallbackColors = [
+              "006ce9",
+              "ac7ff4",
+              "18b6f6",
+              "713fc2",
+              "ffffff",
+            ];
+
+            const resolveConfettiColors = () => {
+              if (typeof document === "undefined") {
+                return fallbackColors;
+              }
+              const varNames = [
+                "--brand-link",
+                "--brand-logo-secondary",
+                "--brand-link-soft",
+                "--brand-link-alt",
+                "--brand-logo-foreground",
+              ];
+              const style = getComputedStyle(document.documentElement);
+              const parsed = varNames
+                .map((name) => style.getPropertyValue(name).trim())
+                .filter(Boolean)
+                .map((value) => {
+                  if (value.startsWith("#")) {
+                    return value.slice(1);
+                  }
+                  if (value.startsWith("rgb")) {
+                    const channels = value
+                      .replace(/[rgba()]/g, "")
+                      .split(",")
+                      .slice(0, 3)
+                      .map((part) => {
+                        const channel = Number.parseInt(part.trim(), 10);
+                        return Number.isNaN(channel) ? 0 : channel;
+                      });
+                    if (channels.length === 3) {
+                      return channels
+                        .map((channel) =>
+                          channel.toString(16).padStart(2, "0").toLowerCase(),
+                        )
+                        .join("");
+                    }
+                  }
+                  return value.replace("#", "");
+                });
+              return parsed.length ? parsed : fallbackColors;
+            };
+
             const defaults = {
               spread: 360,
               ticks: 70,
               gravity: 0,
               decay: 0.95,
               startVelocity: 30,
-              colors: ["006ce9", "ac7ff4", "18b6f6", "713fc2", "ffffff"],
+              colors: resolveConfettiColors(),
               origin: {
                 x: 0.5,
                 y: 0.35,

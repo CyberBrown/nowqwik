@@ -1,5 +1,5 @@
 .anchor {
-  color: white !important;
+  color: var(--brand-text-inverse) !important;
   display: block;
   font-size: 0.8rem;
   text-align: center;

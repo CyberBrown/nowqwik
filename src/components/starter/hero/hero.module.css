@@ -20,7 +20,7 @@
 }
 
 .hero p {
-  color: white;
+  color: var(--brand-text-inverse);
   margin: 0;
   font-size: 1rem;
 }

@@ -51,5 +51,6 @@ functions/**/*.js
 .env*
 !.env.example
 
-# Nested git repository
-develop/
+
+.nx/cache
+.nx/workspace-data
